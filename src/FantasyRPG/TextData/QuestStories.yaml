@@ -1,0 +1,46 @@
+path_elder_warriors:
+  title: Путь Древних Воинов
+  plot:
+    В далеких землях существует легенда о Древних Воинах — могущественных героях, чьи души были запечатаны в древних артефактах.
+    Эти артефакты содержат огромную силу и мудрость, и говорят, что только истинно достойный герой сможет освободить души Древних Воинов и унаследовать их силу.
+    Главный герой, отправляется в поисках этих артефактов и их душ, чтобы стать настоящим героем и защитником своего мира
+  start:
+    creator: sage_iacov[pwe_iacov_dialog] or temple_monk[pwe_monk_dialog]
+    condition: int > 5 or event_good_news
+    accepter: sage_iacov
+  finish:
+    title: Найти и освободить души Древних Воинов из артефактов
+    trigger: activate_soul_stones
+    reward: special_dagger or invisible_perk
+  custom_events:
+    start_first:
+      message: Я добрался до места нахождения первого Камня душ. Теперь нужно убить драконв
+      trigger: player in location_danger_forest
+      alter:
+        finish_first:
+          title: Герой сражается с монстром и побеждает его. Получает первую душу Древнего Воина.
+          trigger: kill danger_forest_dragon and count soul_stone in player = 1
+        finish_first_other:
+          title: Герой не сражается, но преуспевает в убегстве и находит другой способ освободить душу
+          trigger: alive danger_forest_dragon and count soul_stone in player = 1
+    start_second:
+      message: Я добрался до места нахождения второго Камня душ
+      trigger: player in location_castle and count soul_stone in player = 1
+      alter:
+        finish_second:
+          title: Герой решает проникнуть в запретную зону, сражается с охраной и успешно освобождает душу
+          trigger: kill castle_warrior and count soul_stone in player = 2
+        finish_second_other:
+          title: Герой не сражается, но преуспевает в бегстве и находит другой способ освободить душу
+          trigger: alive castle_warrior and count soul_stone in player = 2
+    ending:
+      title: Герой достигает последнего артефакта, но перед ним появляется загадочный стражник
+      trigger: end evil_man[welcome_dialog]
+      alter:
+        finish_ending:
+          title: Герой сражается со стражником и побеждает, освобождая последнюю душу Древнего Воина
+          trigger: kill evil_man and count soul_stone in player = 3
+        finish_ending_other:
+          title: Герой убеждает стражника в своей доброй воле и намерении использовать силу Древних Воинов для защиты
+          condition: int > 5 or event_good_news
+          trigger: alive evil_man and count soul_stone in player = 3
