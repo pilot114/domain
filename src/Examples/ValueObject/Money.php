@@ -2,6 +2,7 @@
 
 namespace Domain\Examples\ValueObject;
 
+use Domain\DomainBase\VO;
 use Domain\Examples\Dictionary\Currency;
 
 readonly class Money extends VO

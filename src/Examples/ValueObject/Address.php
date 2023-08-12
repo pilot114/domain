@@ -2,6 +2,8 @@
 
 namespace Domain\Examples\ValueObject;
 
+use Domain\DomainBase\VO;
+
 readonly class Address extends VO
 {
     public function __construct(

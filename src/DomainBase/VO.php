@@ -1,6 +1,6 @@
 <?php
 
-namespace Domain\Examples\ValueObject;
+namespace Domain\DomainBase;
 
 abstract readonly class VO
 {

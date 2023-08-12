@@ -1,18 +1,32 @@
-path_elder_warriors:
+# Тут перечисляются квесты, описанные в DSL квестов
+# ИМЯ_КВЕСТА:
+#   title: Художественное название
+#   plot: Художественное описание сюжета
+#   start: Настройки начала квеста
+#     creator: NPC
+#   type: side quest
+#
+#
+# что нужно учитывать:
+#   как с взаимодействовать с акторами квеста до взятия квеста
+#   у всех сущностей должны быть ID, можно текстовые для удобства
+# см. Creation Kit от беседки (https://tesck.ru/wiki/%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D0%B8%D0%BA_Bethesda_%D0%9F%D0%BB%D0%B0%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_%D0%9A%D0%B2%D0%B5%D1%81%D1%82%D0%B0)
+
+quest_path_elder_warriors:
   title: Путь Древних Воинов
   plot:
     В далеких землях существует легенда о Древних Воинах — могущественных героях, чьи души были запечатаны в древних артефактах.
     Эти артефакты содержат огромную силу и мудрость, и говорят, что только истинно достойный герой сможет освободить души Древних Воинов и унаследовать их силу.
     Главный герой, отправляется в поисках этих артефактов и их душ, чтобы стать настоящим героем и защитником своего мира
   start:
-    creator: sage_iacov[pwe_iacov_dialog] or temple_monk[pwe_monk_dialog]
     condition: int > 5 or event_good_news
+    trigger: sage_iacov[pwe_iacov_dialog] or temple_monk[pwe_monk_dialog]
     accepter: sage_iacov
   finish:
     title: Найти и освободить души Древних Воинов из артефактов
     trigger: activate_soul_stones
     reward: special_dagger or invisible_perk
-  custom_events:
+  quest_stages:
     start_first:
       message: Я добрался до места нахождения первого Камня душ. Теперь нужно убить драконв
       trigger: player in location_danger_forest

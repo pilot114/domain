@@ -2,7 +2,7 @@
 
 namespace Domain\FantasyRPG\Quest;
 
-use Domain\FantasyRPG\Enums\NPCType;
+use Domain\FantasyRPG\Person\Player;
 
 class Quest
 {
@@ -10,7 +10,6 @@ class Quest
 
     public function __construct(
         protected Sequence $events, // последовательность событий
-        protected ?NPC $creator,    // Кто выдает задание
     ) {}
 
     // получение квеста

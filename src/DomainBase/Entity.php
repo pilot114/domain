@@ -1,10 +1,10 @@
 <?php
 
-namespace Domain\Examples\Entity;
+namespace Domain\DomainBase;
 
 abstract class Entity
 {
-    public int $id;
+    public mixed $id;
 
     public function equal(Entity $other): bool
     {

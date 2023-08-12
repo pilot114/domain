@@ -2,6 +2,8 @@
 
 namespace Domain\Examples\ValueObject;
 
+use Domain\DomainBase\VO;
+
 readonly class Coordinates extends VO
 {
     const EARTH_RADIUS_KM = 6371;
