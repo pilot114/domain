@@ -1,0 +1,10 @@
+services:
+  php:
+    build: php
+    working_dir: /app/bin
+    environment:
+      PHP_IDE_CONFIG: "serverName=Docker"
+    volumes:
+      - "../:/app"
+      - "${HOME}/.ssh:/home/workspace/.ssh"
+      - "${HOME}/.gitconfig:/home/workspace/.gitconfig"

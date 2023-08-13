@@ -2,6 +2,8 @@
 
 Набор небольших проектов по моделированию различных предметных областей
 
+TODO: использовать snidget для DI и прочих базовых вещей
+
 ### index
 
 - Social psychology (Социа́льная психоло́гия)
@@ -11,3 +13,4 @@ https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D
 https://zaochnik.com/spravochnik/psihologija/sotsialnaja-psihologija/
 
 - CardGames (manchkin, poker, etc.)
+- FantasyRPG
